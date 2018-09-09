@@ -1,29 +1,30 @@
 class Api::ProductsController < ApplicationController
   def index
+    search_term = params[:search]
+    sort_attribute = params[:sort]
+    sort_order = params[:sort_order]
+
     @products = Product.all
 
-    search_term = params[:search]
     if search_term
-      @products = @products.where("name iLike ?", "%#{search_term}%")
+      @products = @products.where("name iLIKE ?", "%#{search_term}%")
     end
 
-    sort_attribute = params[:sort_by]
-     sort_order = params[:sort_order]
-    if sort_attribute && sort_order
+    if sort_order && sort_attribute
       @products = @products.order(sort_attribute => sort_order)
     elsif sort_attribute
       @products = @products.order(sort_attribute)
-    end
-      
+    end 
+
     render 'index.json.jbuilder'
   end
 
   def create
-    @product = Product.new(name: params[:name],
+    @product = Product.new(
+                           name: params[:name],
                            price: params[:price],
-                           image_url: params[:image_url],
                            description: params[:description]
-                            )
+                          )
     if @product.save
       render 'show.json.jbuilder'
     else
@@ -38,15 +39,15 @@ class Api::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
-    
+
     if @product.save
       render 'show.json.jbuilder'
     else
-      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+      render json: {errors: @product.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
