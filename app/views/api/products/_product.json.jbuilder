@@ -20,3 +20,5 @@ end
 json.supplier do
   json.partial! product.supplier, partial: 'api/suppliers/supplier', as: :supplier
 end
+
+json.current_user current_user
