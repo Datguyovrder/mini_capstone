@@ -9,16 +9,8 @@ json.images do
   json.array! product.images, partial: 'api/images/image', as: :image
 end
 
-json.discounted product.is_discounted?
-
-json.formatted do 
-  json.price number_to_currency(product.price)
-  json.tax number_to_currency(product.tax)
-  json.total number_to_currency(product.total)
-end  
-
 json.supplier do
   json.partial! product.supplier, partial: 'api/suppliers/supplier', as: :supplier
 end
 
-json.current_user current_user
+# json.current_user current_user
