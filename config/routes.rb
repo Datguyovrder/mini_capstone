@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     get "/orders" => "orders#index"
     post "/orders" => "orders#create"
 
+    get "/carted_products" => "carted_products#index"
     post "/carted_products" => "carted_products#create"
+    delete "/carted_products/:id" => "carted_products#destry"
 
     get "/products" => 'products#index'
     post "/products" => 'products#create'
