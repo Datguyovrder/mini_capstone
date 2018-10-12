@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="index.js" defer></script>
 
     <title>Hello, world!</title>
@@ -100,11 +101,11 @@
   <div class="col-md-4 card-top-spacing">
       <div class="card">
           <div class="card-body">
-              <h2 class="card-title"><a href="#">Epyon Gundam</a></h2>
-              <h2 class="card-text">Price: $14 </h2>
+              <h2 class="card-title"><a class="product-name" href="/products/1">Epyon Gundam</a></h2>
+              <h2 class="card-text">Price: <span class="price"></span> </h2>
               <img src="https://vignette.wikia.nocookie.net/gundam/images/c/c4/OZ-13MS.Sh.JPG/revision/latest?cb=20120315184429", height="400">
               <h3>Description: </h3>
-              <p class="card-text">The OZ-13MS Gundam Epyon is a mobile suit featured in Mobile Suit Gundam Wing. Originally piloted by Heero Yuy, the suit would later be given to Zechs Merquise.</p>
+              <p class="card-text">Description: <span class="description"></span><!-- The OZ-13MS Gundam Epyon is a mobile suit featured in Mobile Suit Gundam Wing. Originally piloted by Heero Yuy, the suit would later be given to Zechs Merquise. --></p>
           </div>
       </div>
   </div>
